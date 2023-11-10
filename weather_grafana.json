@@ -1,0 +1,924 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "fieldMinMax": false,
+            "mappings": [],
+            "noValue": "N/A",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 15
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 26
+                },
+                {
+                  "color": "red",
+                  "value": 37
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 9,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "max"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value_and_name"
+        },
+        "pluginVersion": "10.2.0",
+        "targets": [
+          {
+            "alias": "Caieiras  ",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Caieiras  ",
+            "refId": "A",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "Carapicuíba",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "avg": false,
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "settings": {},
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Carapicuíba",
+            "refId": "B",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "São Paulo",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: São Paulo",
+            "refId": "C",
+            "timeField": "timestamp"
+          }
+        ],
+        "title": "Temperatura Máxima no Período",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "percentage",
+              "steps": [
+                {
+                  "color": "red",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 40
+                },
+                {
+                  "color": "green",
+                  "value": 70
+                },
+                {
+                  "color": "red",
+                  "value": 70.0001
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 5,
+          "x": 19,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "minVizHeight": 75,
+          "minVizWidth": 75,
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {
+            "titleSize": 12
+          }
+        },
+        "pluginVersion": "10.2.0",
+        "targets": [
+          {
+            "alias": "Caieiras",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "timeZone": "America/Sao_Paulo"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "metrics": [
+              {
+                "field": "main.humidity",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Caieiras",
+            "refId": "A",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "Carapicuíba",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.humidity",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Carapicuíba",
+            "refId": "B",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "São Paulo",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.humidity",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: São Paulo",
+            "refId": "C",
+            "timeField": "timestamp"
+          }
+        ],
+        "title": "Umidade Relativa do Ar Atual",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "fieldMinMax": false,
+            "mappings": [],
+            "noValue": "N/A",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 15
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 26
+                },
+                {
+                  "color": "red",
+                  "value": 37
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 9,
+          "y": 3
+        },
+        "id": 4,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "min"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value_and_name"
+        },
+        "pluginVersion": "10.2.0",
+        "targets": [
+          {
+            "alias": "Caieiras  ",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": false,
+                  "min": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Caieiras  ",
+            "refId": "A",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "Carapicuíba",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "avg": false,
+                  "max": false,
+                  "min": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "settings": {},
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Carapicuíba",
+            "refId": "B",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "São Paulo",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": false,
+                  "min": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: São Paulo",
+            "refId": "C",
+            "timeField": "timestamp"
+          }
+        ],
+        "title": "Temperatura Mínima no Período",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "fieldMinMax": false,
+            "mappings": [],
+            "noValue": "N/A",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "blue",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 15
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 26
+                },
+                {
+                  "color": "red",
+                  "value": 37
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 9,
+          "y": 6
+        },
+        "id": 5,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value_and_name"
+        },
+        "pluginVersion": "10.2.0",
+        "targets": [
+          {
+            "alias": "Caieiras  ",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "metrics": [
+              {
+                "field": "main.feels_like",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "min": false,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Caieiras  ",
+            "refId": "A",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "Carapicuíba",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.feels_like",
+                "id": "1",
+                "meta": {
+                  "avg": false,
+                  "max": true,
+                  "min": false,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "settings": {},
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Carapicuíba",
+            "refId": "B",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "São Paulo",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.feels_like",
+                "id": "1",
+                "meta": {
+                  "avg": false,
+                  "max": true,
+                  "min": false,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "settings": {},
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: São Paulo",
+            "refId": "C",
+            "timeField": "timestamp"
+          }
+        ],
+        "title": "Sensação Térmica Atual",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "always",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "decimals": 0,
+            "mappings": [],
+            "max": 45,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "10.2.0",
+        "targets": [
+          {
+            "alias": "Caieiras",
+            "bucketAggs": [
+              {
+                "id": "2",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "avg": false,
+                  "count": false,
+                  "max": true,
+                  "min": false,
+                  "std_deviation": false,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false,
+                  "sum": false
+                },
+                "settings": {},
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Caieiras",
+            "refId": "A",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "Carapicuíba",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: Carapicuíba",
+            "refId": "B",
+            "timeField": "timestamp"
+          },
+          {
+            "alias": "São Paulo",
+            "bucketAggs": [
+              {
+                "field": "timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "aa01c927-9f78-4f41-81d4-658b8e32a1a4"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "main.temp",
+                "id": "1",
+                "meta": {
+                  "max": true,
+                  "std_deviation_bounds_lower": false,
+                  "std_deviation_bounds_upper": false
+                },
+                "type": "extended_stats"
+              }
+            ],
+            "query": "name: São Paulo",
+            "refId": "C",
+            "timeField": "timestamp"
+          }
+        ],
+        "title": "Temperatura por Cidade",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 38,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now/d",
+      "to": "now/d"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "10m"
+      ]
+    },
+    "timezone": "",
+    "title": "Weather",
+    "uid": "d781c18c-5544-4a08-bb00-5455dbf5a585",
+    "version": 12,
+    "weekStart": ""
+  }
